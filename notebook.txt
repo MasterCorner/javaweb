@@ -1,0 +1,9 @@
+本地仓库已起别名github
+用git push github master就可以推上去了。
+常用操作只有
+git pull github master
+本地修改，
+git status
+git add .
+git commit -m "modify"
+git push github master
