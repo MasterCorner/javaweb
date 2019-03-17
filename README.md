@@ -13,7 +13,7 @@ a practice web project.
 ## 基本信息
 - No: 222015325012065
 - Name: 王睿敏
-- web: [link](http://47.102.203.124:8080/javaweb)
+- web: [一个登录界面](http://47.102.203.124:8080/javaweb)
 
 ## 第一周完成内容
 - 模拟老师设置的开发环境
