@@ -1,10 +1,10 @@
-package cn.edu.swu
+package cn.edu.swu;
 
 import javax.servlet.http.*;
 
-public class Login extends HttpsServlet{
+public class Login extends HttpServlet{
 
-	public void doPost(HttpServletRequest req,HttpServletReponse resp)
+	public void doPost(HttpServletRequest req,HttpServletResponse resp) {
 		System.out.println(req.getContextPath());
 
 		String user = req.getParameter("user");

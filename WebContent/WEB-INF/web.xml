@@ -13,9 +13,9 @@
 	</context-param>  -->
 
 	<servlet>
-		<servlet-name>login<servlet-name>
-		<servlet-class>cn.deu.swu.Login</servlet>
-		<load-on-startup>1<load-on-startup>
+		<servlet-name>login</servlet-name>
+		<servlet-class>cn.deu.swu.Login</servlet-class>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
