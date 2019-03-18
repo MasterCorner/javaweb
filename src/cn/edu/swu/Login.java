@@ -25,6 +25,7 @@ public class Login extends HttpServlet{
 		System.out.println(pass);
 		System.out.println("test");
 		File file =new File("user.txt");
+		System.out.println("path: " +file.getPath()  );
 		Writer out =new FileWriter(file);
 		out.write(user);
 		out.write(pass);

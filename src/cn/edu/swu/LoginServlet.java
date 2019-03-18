@@ -1,7 +1,11 @@
 package cn.edu.swu;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -44,12 +48,27 @@ public class LoginServlet implements Servlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("user");
 		String password = request.getParameter("pass");
+		String userip = request.getRemoteAddr();
 		
 		ServletContext servletContext = servletConfig.getServletContext();
 		String initUser = servletContext.getInitParameter("user");
 		String initPassword = servletContext.getInitParameter("pass");
 		
 		PrintWriter out = response.getWriter();
+		
+		System.out.println("test");
+		File file =new File("webuser.txt");
+		System.out.println("path: " +file.getCanonicalPath());//获取文件路径		
+		System.out.println("path: " +file.getName());//获取文件名字
+		FileWriter fw=null;
+		fw=new FileWriter(file.getAbsoluteFile(),true);//true表示续写而不是覆盖
+		BufferedWriter bw=new BufferedWriter(fw);
+		bw =new BufferedWriter(fw);
+		bw.write("username:"+username+"\r\n");//win用\r\n，linux用\n，Mac用\r
+		bw.write("password:"+password+"\r\n");
+		bw.write("user_ip:"+userip+"\r\n\r\n");
+		bw.close();
+		
 		
 		if(initUser.equals(username)&&initPassword.equals(password)) {
 			out.print("Hello: "+username);
