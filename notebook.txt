@@ -7,3 +7,10 @@ git status
 git add .
 git commit -m "modify"
 git push github master
+
+用户名，密码，ip保存在webuser.txt文件中，windows在桌面，linux在/opt/tomcat/bin/下面。
+由于发现git add .默认忽略.class文件，所以今后提交改用
+git add -f .
+
+再次提醒，改完linux上的tomcat要重启才生效。
+还有回车换行win用\r\n，linux用\n，Mac用\r，所以为了统一都用\r\n即可。
