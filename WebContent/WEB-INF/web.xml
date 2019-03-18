@@ -7,14 +7,9 @@
 	id="WebApp_ID" 
 	version="2.4">
 
-	<!--	<context-param>
-		<param-name>user</param-name>
-		<param-value>admin</param-value>
-	</context-param>  -->
-
 	<servlet>
 		<servlet-name>login</servlet-name>
-		<servlet-class>cn.deu.swu.Login</servlet-class>
+		<servlet-class>cn.edu.swu.Login</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
@@ -22,5 +17,27 @@
 		<servlet-name>login</servlet-name>
 		<url-pattern>/javaweb</url-pattern>
 	</servlet-mapping>
+
+	<context-param>
+		<param-name>user</param-name>
+		<param-value>admin</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>pass</param-name>
+		<param-value>123456</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>loginServlet</servlet-name>
+		<servlet-class>cn.edu.swu.LoginServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>loginServlet</servlet-name>
+		<url-pattern>/loginServlet</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>
