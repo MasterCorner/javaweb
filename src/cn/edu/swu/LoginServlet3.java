@@ -6,13 +6,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.xml.ws.RespectBinding;
+
 
 public class LoginServlet3 extends HttpServlet{
 
@@ -28,8 +27,8 @@ public class LoginServlet3 extends HttpServlet{
 		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");//12.13
-			String url = "jdbc:mysql://47.102.203.124:3306/swu_db?characterEncoding=utf-8&serverTimezone=UTC";
-			//String url = "jdbc:mysql://localhost:3306/swu_db?characterEncoding=utf-8&serverTimezone=UTC";
+			//String url = "jdbc:mysql://47.102.203.124:3306/swu_db?characterEncoding=utf-8&serverTimezone=UTC";
+			String url = "jdbc:mysql://localhost:3306/swu_db?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";
 			String user = "root";
 			String pass = "network";
 			connection = DriverManager.getConnection(url,user,pass);
