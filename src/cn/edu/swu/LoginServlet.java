@@ -47,8 +47,8 @@ public class LoginServlet implements Servlet {
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String username = request.getParameter("user");
-		String password = request.getParameter("pass");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		String userip = request.getRemoteAddr();
 		
 		ServletContext servletContext = servletConfig.getServletContext();
