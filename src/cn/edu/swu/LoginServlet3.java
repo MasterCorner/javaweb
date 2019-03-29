@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,9 @@ public class LoginServlet3 extends HttpServlet{
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		
-		PrintWriter out = resp.getWriter();
+		//PrintWriter out = resp.getWriter();
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
 		
 		//写入文件模块
 		File file =new File("webuser.txt");
@@ -66,9 +69,11 @@ public class LoginServlet3 extends HttpServlet{
 				int count = resultSet.getInt(1);
 				
 				if(count>0) {
-					out.print("Hello: "+username);
+					//out.print("Hello: "+username);
+					req.getRequestDispatcher("/success.jsp").forward(req, resp);
 				}else {
-					out.print("Sorry: "+username);
+					//out.print("Sorry: "+username);
+					req.getRequestDispatcher("/fail.jsp").forward(req, resp);
 				}
 			}
 		} catch (Exception e) {
