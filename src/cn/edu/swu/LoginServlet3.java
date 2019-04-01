@@ -30,10 +30,10 @@ public class LoginServlet3 extends HttpServlet{
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		
-		//PrintWriter out = resp.getWriter();
+		
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
-		
+		//PrintWriter out = resp.getWriter();
 		//写入文件模块
 		File file =new File("webuser.txt");
 		FileWriter fw=null;
@@ -69,7 +69,7 @@ public class LoginServlet3 extends HttpServlet{
 				int count = resultSet.getInt(1);
 				
 				if(count>0) {
-					//out.print("Hello: "+username);
+					//out.print("Hello:你好 "+username);
 					req.getRequestDispatcher("/success.jsp").forward(req, resp);
 				}else {
 					//out.print("Sorry: "+username);
