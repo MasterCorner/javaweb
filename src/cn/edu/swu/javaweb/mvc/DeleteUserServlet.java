@@ -12,12 +12,11 @@ public class DeleteUserServlet extends HttpServlet{
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		String user
 		
 		UserDao UserDao = new UserDao();
-		UserDao.deleteByFlowId(Integer.parseInt(id));
+		UserDao.deleteById(Integer.parseInt(id));
 		
-		request.getRequestDispatcher("/success.jsp").forward(request, response); 
+		request.getRequestDispatcher("/delsuccess.jsp").forward(request, response);
 	}
 	
 }

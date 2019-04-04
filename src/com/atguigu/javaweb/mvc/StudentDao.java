@@ -1,6 +1,4 @@
-package cn.edu.swu.javaweb.mvc;
-
-import java.sql.Connection;
+package com.atguigu.javaweb.mvc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,9 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserDao {
-	
-	public void deleteById(Integer id){
+public class StudentDao {
+
+	public void deleteByFlowId(Integer flowId){
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -25,10 +23,10 @@ public class UserDao {
 			Class.forName(driverClass);
 			connection = DriverManager.getConnection(url, user, password);
 			
-			String sql = "DELETE FROM users WHERE id = ?";
+			String sql = "DELETE FROM examstudent WHERE flow_id = ?";
 			preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, id);
+			preparedStatement.setInt(1, flowId);
 			
 			preparedStatement.executeUpdate();
 		} catch (Exception e) {
@@ -54,9 +52,9 @@ public class UserDao {
 	}
 	
 	
-	public List<User> getAll(){
+	public List<Student> getAll(){
 		
-		List<User> users = new ArrayList<>();
+		List<Student> students = new ArrayList<>();
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -69,50 +67,56 @@ public class UserDao {
 			String password = "network";
 			
 			Class.forName(driverClass);
-			connection = DriverManager.getConnection(url, user, password);
+			connection = DriverManager.getConnection(url,user,password);
 			
-			String sql = "SELECT id, username, password from users";
+			String sql = "select flow_id,type,id_card,exam_card,student_name,location,grade from examstudent";
 			preparedStatement = connection.prepareStatement(sql);
-			
 			resultSet = preparedStatement.executeQuery();
+			
 			while(resultSet.next()){
-				int id = resultSet.getInt(1);
-				String username = resultSet.getString(2);
-				String password1 = resultSet.getString(3);
+				int flowId = resultSet.getInt(1);
+				int type = resultSet.getInt(2);
+				String idCard = resultSet.getString(3);
+				String examCard = resultSet.getString(4);
+				String studentName = resultSet.getString(5);
+				String location = resultSet.getString(6);
+				int grade = resultSet.getInt(7);
 				
-				User user1 = new User(id, username, password1);
-				users.add(user1);
+				Student student = new Student(flowId, type, idCard, examCard,studentName, location, grade);
+				students.add(student);
 			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally{
+			// TODO: handle exception
+		}finally {
 			try {
-				if(resultSet != null){
+				if(resultSet != null) {
 					resultSet.close();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			}
-			
+				// TODO: handle exception
+			}			
 			try {
-				if(preparedStatement != null){
+				if(preparedStatement != null) {
 					preparedStatement.close();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+				// TODO: handle exception
 			}
-			
 			try {
-				if(connection != null){
+				if(connection != null) {
 					connection.close();
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
+				// TODO: handle exception
 			}
 		}
 		
-		return users;
+		return students;
 	}
-
 
 }

@@ -60,5 +60,28 @@
     <servlet-name>DeleteUserServlet</servlet-name>
     <url-pattern>/deleteUser</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+    <description></description>
+    <display-name>ListAllStudentsServlet</display-name>
+    <servlet-name>ListAllStudentsServlet</servlet-name>
+    <servlet-class>com.atguigu.javaweb.mvc.ListAllStudentsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListAllStudentsServlet</servlet-name>
+    <url-pattern>/ListAllStudents</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  <description></description>
+    <display-name>DeleteStudentServlet</display-name>
+    <servlet-name>DeleteStudentServlet</servlet-name>
+    <servlet-class>com.atguigu.javaweb.mvc.DeleteStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteStudentServlet</servlet-name>
+    <url-pattern>/deleteStudent</url-pattern>
+  </servlet-mapping>
+  
 
 </web-app>

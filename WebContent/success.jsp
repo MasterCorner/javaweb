@@ -8,7 +8,6 @@
 </head>
 <body>
 <h2>
-success
 <br><br>
 登陆成功，此页面由 转发 跳转而来，这是一个jsp文件。
 
@@ -16,5 +15,7 @@ success
 Hello
 <%=request.getParameter("username") %>
 </h2>
+<br>
+<a href="ListAllStudents">List All Students</a>
 </body>
 </html>
