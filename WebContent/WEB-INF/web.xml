@@ -5,7 +5,7 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
 	id="WebApp_ID" 
-	version="2.4">
+	version="2.5">
 <!--  
 	<servlet>
 		<servlet-name>login</servlet-name>
@@ -32,13 +32,33 @@
 	<servlet>
 		<servlet-name>loginServlet</servlet-name>
 		<servlet-class>cn.edu.swu.LoginServlet3</servlet-class>
-		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>loginServlet</servlet-name>
 		<url-pattern>/loginServlet</url-pattern>
 	</servlet-mapping>
-
+	
+  <servlet>
+    <description></description>
+    <display-name>ListAllUsersServlet</display-name>
+    <servlet-name>ListAllUsersServlet</servlet-name>
+    <servlet-class>cn.edu.swu.javaweb.mvc.ListAllUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListAllUsersServlet</servlet-name>
+    <url-pattern>/listAllUsers</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>DeleteUserServlet</display-name>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <servlet-class>cn.edu.swu.javaweb.mvc.DeleteUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteUserServlet</servlet-name>
+    <url-pattern>/deleteUser</url-pattern>
+  </servlet-mapping>
 
 </web-app>
