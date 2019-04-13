@@ -3,9 +3,11 @@ package cn.edu.swu.mvcapp.db;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+
+
 
 /**
  * JDBC操作的工具类
@@ -29,11 +31,13 @@ public class jdbcUtils {
 		}
 	}
 	
-	private static ComboPooledDataSource dataSource = null;
+	//private static ComboPooledDataSource dataSource = null;
+	private static DataSource dataSource = null;
 	
 	static {
 		//数据源只能被创建一次。
-		dataSource = new ComboPooledDataSource("mvcapp");
+		
+		dataSource = new ComboPooledDataSource("mvcApp");
 	}
 	
 	/**

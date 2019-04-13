@@ -5,13 +5,16 @@
   
   	<property name="user">root</property>
   	<property name="password">network</property>
-  	<property name="driverClass">com.mysql.jdbc.Driver</property>
-  	<property name="jdbcUrl">jdbc:mysql://47.102.203.124:3306/swu_db?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true</property>
+  	<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+  	<property name="jdbcUrl">jdbc:mysql://47.102.203.124:3306/swu_db</property>
+  	
+  	<!-- ?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true 
+  	?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;useUnicode=true&amp;useSSL=false&amp;allowPublicKeyRetrieval=true-->
   	
     <property name="acquireIncrement">5</property>
     <property name="initialPoolSize">10</property>
     <property name="minPoolSize">10</property>
-    <property name="maxPoolSize">50</property>
+    <property name="maxPoolSize">30</property>
 
     <property name="maxStatements">20</property> 
     <property name="maxStatementsPerConnection">5</property>

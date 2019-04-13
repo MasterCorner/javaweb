@@ -17,5 +17,7 @@ Hello
 </h2>
 <br>
 <a href="ListAllStudents">List All Students</a>
+<br><br>
+<a href="/customer.jsp">List All Customer</a>
 </body>
 </html>

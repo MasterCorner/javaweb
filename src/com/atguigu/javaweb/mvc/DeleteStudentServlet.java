@@ -19,7 +19,7 @@ public class DeleteStudentServlet extends HttpServlet {
 		StudentDao studentDao = new StudentDao();
 		studentDao.deleteByFlowId(Integer.parseInt(flowId));
 		
-		request.getRequestDispatcher("/studelsuccess.jsp").forward(request, response); 
+		request.getRequestDispatcher("/success.jsp").forward(request, response); 
 	}
 
 }

@@ -1,6 +1,4 @@
-package cn.edu.swu.mvcapp.test;
-
-import static org.junit.Assert.*;
+ package cn.edu.swu.mvcapp.test;
 
 import java.sql.Connection;
 import java.sql.SQLException;

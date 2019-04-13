@@ -5,6 +5,8 @@ import java.util.List;
 import cn.edu.swu.mvcapp.domain.Customer;
 
 public interface CustomerDAO {
+	
+	public List<Customer> getForListWithCriteriaCustomerscustomer(CriteriaCustomer cc);
 
 	public List<Customer> getAll();
 	

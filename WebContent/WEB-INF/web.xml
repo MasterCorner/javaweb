@@ -1,44 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns="http://java.sun.com/xml/ns/javaee" 
-	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-	id="WebApp_ID" 
-	version="2.5">
-<!--  
-	<servlet>
-		<servlet-name>login</servlet-name>
-		<servlet-class>cn.edu.swu.Login</servlet-class>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>login</servlet-name>
-		<url-pattern>/javaweb</url-pattern>
-	</servlet-mapping>
-
-
-	<context-param>
-		<param-name>user</param-name>
-		<param-value>admin</param-value>
-	</context-param>
-	
-	<context-param>
-		<param-name>pass</param-name>
-		<param-value>123456</param-value>
-	</context-param>
--->	
-	<servlet>
-		<servlet-name>loginServlet</servlet-name>
-		<servlet-class>cn.edu.swu.LoginServlet3</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>loginServlet</servlet-name>
-		<url-pattern>/loginServlet</url-pattern>
-	</servlet-mapping>
-	
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="http://java.sun.com/xml/ns/javaee" 
+xmlns:web="http://java.sun.com/xml/ns/javaee" 
+xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <servlet>
+    <servlet-name>loginServlet</servlet-name>
+    <servlet-class>cn.edu.swu.LoginServlet3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginServlet</servlet-name>
+    <url-pattern>/loginServlet</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>ListAllUsersServlet</display-name>
@@ -49,7 +21,6 @@
     <servlet-name>ListAllUsersServlet</servlet-name>
     <url-pattern>/listAllUsers</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>DeleteUserServlet</display-name>
@@ -60,8 +31,7 @@
     <servlet-name>DeleteUserServlet</servlet-name>
     <url-pattern>/deleteUser</url-pattern>
   </servlet-mapping>
-  
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ListAllStudentsServlet</display-name>
     <servlet-name>ListAllStudentsServlet</servlet-name>
@@ -71,9 +41,8 @@
     <servlet-name>ListAllStudentsServlet</servlet-name>
     <url-pattern>/ListAllStudents</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  <description></description>
+    <description></description>
     <display-name>DeleteStudentServlet</display-name>
     <servlet-name>DeleteStudentServlet</servlet-name>
     <servlet-class>com.atguigu.javaweb.mvc.DeleteStudentServlet</servlet-class>
@@ -81,7 +50,16 @@
   <servlet-mapping>
     <servlet-name>DeleteStudentServlet</servlet-name>
     <url-pattern>/deleteStudent</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping>  
   
-
+  <servlet>
+    <description></description>
+    <display-name>CustomerServlet</display-name>
+    <servlet-name>CustomerServlet</servlet-name>
+    <servlet-class>cn.edu.swu.mvcapp.servlet.CustomerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CustomerServlet</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
 </web-app>
