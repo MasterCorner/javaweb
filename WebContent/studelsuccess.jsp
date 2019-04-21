@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>操作成功！</title>
+<link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
 	

@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>success</title>
+<link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
 <h2>
@@ -18,6 +19,6 @@ Hello
 <br>
 <a href="ListAllStudents">List All Students</a>
 <br><br>
-<a href="/customer.jsp">List All Customer</a>
+<a href="./customer.jsp">List All Customer</a>
 </body>
 </html>

@@ -10,6 +10,17 @@ public class Customer {
 	
 	private String phone;
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Customer(String name, String address, String phone) {
+		super();
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+	}
+
 	public Integer getId() {
 		return id;
 	}

@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>错误</title>
-<link href="imgs/favicon.ico" rel="shortcut icon" />
+<title>Add Success！</title>
 </head>
 <body>
 
-	<h4>对不起，没有您请求的页面</h4>
+	<h4>操作成功</h4>
+	<h4><a href="customer.jsp">Return...</a></h4>
 
 </body>
 </html>

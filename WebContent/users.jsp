@@ -6,7 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>用户</title>
+<link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
 	<% 

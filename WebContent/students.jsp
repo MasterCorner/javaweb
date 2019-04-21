@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>students.jsp</title>
+<link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
 	

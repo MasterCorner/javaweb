@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>test.jsp</title>
+<link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
 

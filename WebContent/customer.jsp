@@ -6,7 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Customer</title>
+<script type="text/javascript" src="scripts/jquery-3.4.0.js"></script>
+<script type="text/javascript">
+
+	$(function(){
+		$(".delete").click(function(){
+			var content = $(this).parent().parent().find("td:eq(1)").text();
+			var flag = confirm("确定要是删除"+ content +"的信息吗？");
+			return flag;
+			
+		})
+	});
+
+</script>
+<link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
 
@@ -26,7 +40,7 @@
 			</tr>
 			<tr>
 				<td><input type="submit" name="Query"/></td>
-				<td><a href="">Add New Customer</a></td>
+				<td><a href="newcustomer.jsp">Add New Customer</a></td>
 			</tr>
 		</table>	
 	</form>
@@ -60,8 +74,8 @@
 				<td><%= customer.getAddress() %></td>
 				<td><%= customer.getPhone() %></td>
 				<td>
-					<a href="">UPDATE</a>
-					<a href="">DELETE</a>
+					<a href="edit.do?id=<%= customer.getId() %>">UPDATE</a>
+					<a href="delete.do?id=<%= customer.getId() %>" class="delete">DELETE</a>
 			</tr>
 			<%
 				}

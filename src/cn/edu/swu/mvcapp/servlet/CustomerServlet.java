@@ -91,17 +91,91 @@ public class CustomerServlet extends HttpServlet {
 
 	private void edit(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
+		//1.请求调用参数id
+		
+		//2.调用 CustomerDAO 的 customerDAO.get(id) 获取和 id 对应的 Customer 对象 customer
+		
+		//3.将 customer 放入 request 中
+		
+		//4.响应 updatecustomer.jsp 页面 ： 转发。
 		System.out.println("edit");
 	}
 
 	private void update(HttpServletRequest request, HttpServletResponse response) {
 		// TODO Auto-generated method stub
-		System.out.println("update");
+		//System.out.println("update");
+		//1.获取表单参数：id，name，address，phone
+		
+		//2.检验name是否已经被占用
+		
+		//2.1比较 name 和 oldName 是否相同，若相同说明 name 可用。
+		
+		//2.1若不相同，则调用CustomerDAO 的getCountWithName(String name) 获取 name 在数据库中是否存在
+		
+		//2.2若返回值大于0，则响应updatecustomer.jsp页面：通过转发的方式来响应newcustomer.jsp
+		
+		//2.2.1要求updatecustomer.jsp页面显示一个错误消息：用户名name已经被占用，请重新选择！
+		//在request中放入一个属性message: 用户名name已经被占用，请重新选择！
+		//在页面上通过request.getAttribute("message")的方式来显示
+
+		
+		//2.2.2 updatecustomer.jsp的表单值可以回显
+		//address, phone 显示提交表单的新的值，而 name 显示 oldName ,而不是新提交的 name
+
+		//2.2.3结束方法：return
+		
+		//3.把表单参数封装为一个Customer对象customer
+		
+		
+		//4.调用CustomerDAO的update(Customer customer)执行更新操作
+		
+		
+		//5.重定向到query.do
+		
 	}
 
-	private void add(HttpServletRequest request, HttpServletResponse response) {
+	private void add(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//1.获取表单参数：name,address,phone
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		 
+		//2.检验name是否已经被占用
+		
+		//2.1调用CustomerDAO的getCountWithName(String name)获取name的数据库中是否存在
+		long count = customerDAO.getCountWithName(name);
+		
+		//2.2若返回值大于0，则响应newcustomer.jsp页面：
+		//通过转发的方式来响应newcustomer.jsp
+		if(count > 0) {
+			
+			//2.2.1要求newcustomer.jsp页面显示一个错误消息：用户名name已经被占用，请重新选择！
+			//在request中放入一个属性message: 用户名name已经被占用，请重新选择！
+			//在页面上通过request.getAttribute("message")的方式来显示
+			request.setAttribute("message", "用户名"+ name + "已经被占用，请重新选择！");
+			
+			//2.2.2 newcustomer.jsp的表单值可以回显
+			//通过value="<%= request.getParameter("name") == null ? "" : request.getParameter("name") %>"
+			//来进行回显
+			request.getRequestDispatcher("/newcustomer.jsp").forward(request, response);
+			return;
+		}
+
+		
+		//2.2.3结束方法：return
+		
+		//3.把表单参数封装为一个Customer对象customer
+		Customer customer = new Customer(name,address,phone);
+		
+		//4.调用CustomerDAO的save(Customer customer)执行保存操作
+		customerDAO.save(customer);
+		
+		//5.重定向到addsuccess.jsp页面；使用重定向可以避免出现表单的重复提交问题。
+		//System.out.println(request.getParameter("name"));
+		response.sendRedirect("addsuccess.jsp");
+		//request.getRequestDispatcher("/addsuccess.jsp").forward(request, response);		
 		// TODO Auto-generated method stub
-		System.out.println("add");
+		//System.out.println("add");
 	}
 
 	private void query(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -123,9 +197,20 @@ public class CustomerServlet extends HttpServlet {
 		request.getRequestDispatcher("/customer.jsp").forward(request, response);
 	}
 
-	private void delete(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		System.out.println("delete");
+	private void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String idStr = request.getParameter("id");
+		int id = 0;
+		
+		//try ... catch 的作用；防止idStr 不能转为int类型
+		//若不能转则 id = 0,无法进行任何操作。
+		try {
+			id = Integer.parseInt(idStr);
+			customerDAO.delete(id);
+		} catch (Exception e) {}
+			// TODO: handle exception
+		
+			response.sendRedirect("query.do");
+		
 	}
 
 }
