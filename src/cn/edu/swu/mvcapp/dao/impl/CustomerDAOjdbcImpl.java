@@ -61,5 +61,13 @@ public class CustomerDAOjdbcImpl extends DAO<Customer> implements CustomerDAO{
 		return getForValue(sql, name);
 	}
 
+	@Override
+	public void update(Customer customer) {
+		// TODO Auto-generated method stub
+		String sql="update customers set name = ?,address = ?,phone = ? where id = ?";
+		update(sql,customer.getName(),customer.getAddress(),customer.getPhone(),customer.getId());
+		
+	}
+
 	
 }
