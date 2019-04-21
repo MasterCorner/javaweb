@@ -14,6 +14,7 @@ import org.apache.coyote.http11.filters.SavedRequestInputFilter;
 
 import cn.edu.swu.mvcapp.dao.CriteriaCustomer;
 import cn.edu.swu.mvcapp.dao.CustomerDAO;
+import cn.edu.swu.mvcapp.dao.factory.CustomerDAOFactory;
 import cn.edu.swu.mvcapp.dao.impl.CustomerDAOjdbcImpl;
 import cn.edu.swu.mvcapp.domain.Customer;
 
@@ -24,7 +25,7 @@ import cn.edu.swu.mvcapp.domain.Customer;
 public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private CustomerDAO customerDAO = new CustomerDAOjdbcImpl();
+	private CustomerDAO customerDAO = CustomerDAOFactory.getInstance().getCustomerDAO();
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */

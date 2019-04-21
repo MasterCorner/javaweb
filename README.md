@@ -40,3 +40,7 @@ a practice web project.
 ## 第五周完成内容
 - 完成DAO层设计和实现
 - 两种方法实现多个请求对应一个Servlet
+
+## 第六周完成内容
+- 实现insert
+- 实现update
