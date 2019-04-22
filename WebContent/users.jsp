@@ -10,6 +10,8 @@
 <link href="imgs/favicon.ico" rel="shortcut icon" />
 </head>
 <body>
+	<a href="test.jsp">test.jsp</a>
+	<a href="../tomcat/bin/webuser.txt">download</a>
 	<% 
 		List<User> stus = (List<User>)request.getAttribute("users");
 	if(stus == null){
