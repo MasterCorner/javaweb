@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,7 +11,8 @@
         <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
     </head>
-    <body>
+<body>
+
         <header>
             <nav class="b_clear">
                 <div class="nav_logo l_float">
@@ -37,7 +40,7 @@
                         </div>
                     </div>
                     <div class="login_con">
-                        <form action="loginServlet" method="POST">
+                        <form action="<%= request.getContextPath() %>/loginServlet" method="POST">
                             <div>
                                 <label for="username">用户名</label>
                                 <input type="text" name="username" id="username" placeholder="名字一定超好听耶(￣▽￣)~*"">
@@ -50,24 +53,32 @@
                                 <img src="imgs/icons/lock.svg">
                                 <p class="tips hidden">请检查您的密码</p>
                             </div>
-                            <!--
-                            <div class="b_clear">
-                                <label for="auth_code" class="b_clear">验证码</label>
-                                <input type="text" name="" id="auth_code" placeholder="" class="l_float" maxlength="6">
+                            
+                            <div  class="b_clear">
+                                <label for="auth_code" class="b_clear">验证码（区分大小写）</label>
+                                <input type="text" name="CHECK_CODE_PARAM_NAME" id="auth_code" placeholder="" class="l_float" maxlength="6">
                                 
-                                <button class="auth_code l_float">获取验证码</button>
+                                
                                 <img src="imgs/icons/auth_code.svg">
-                                <p class="tips hidden">验证码错误</p>
+                                <img style="width:100px;height:30px;margin-left:130px" alt="" src="<%= request.getContextPath() %>/validateColorServlet">
+
+                                <!--  <p class="tips hidden">验证码错误</p> -->
+                
                                 
-                            </div>
-                            !-->
+                            </div >
+
+                            
                             <div class="b_clear submit">
                                 
                                 <button type="submit" value="Submit">登&nbsp;&nbsp;录</button>
-                                <a href="#" class="r_float">忘记密码？</a>
+                                <!--  <a href="#" class="r_float">忘记密码？</a> -->
                                 <p class="tips hidden">登录失败，请检查您的账户与密码</p>
                             </div>
                             <div class="b_clear">
+                                <font color="red">
+                                	<%= session.getAttribute("message") == null ? "" : session.getAttribute("message") %>
+                                	<% session.removeAttribute("message"); %>
+                                </font>
                                 <p>测试账号user="tom",password="1234"</p>
                             </div>
                         </form>   
@@ -94,8 +105,7 @@
 
         </div>
 
-        <script src="js/login.js"></script>        
-    </body>
+        <script src="js/login.js"></script>  
+
+</body>
 </html>
-<!-- 使用模板，出处如下： -->
-<!-- 本站版权归赫伟创意星空网站开发请联系我们微信：qiao776338064 -->

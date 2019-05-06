@@ -24,6 +24,8 @@ public class LoginServlet3 extends HttpServlet{
 	protected void doPost(HttpServletRequest req,HttpServletResponse resp)throws ServletException,IOException{
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
+		String paramCode = req.getParameter("CHECK_CODE_PARAM_NAME");
+		String sessionCode = (String)req.getSession().getAttribute("CHECK_CODE_KEY");
 		String userip = req.getRemoteAddr();
 		
 		Connection connection = null;
@@ -33,6 +35,12 @@ public class LoginServlet3 extends HttpServlet{
 		
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
+		
+		//验证码
+		System.out.println(paramCode);
+		System.out.println(sessionCode);
+		
+		
 		//PrintWriter out = resp.getWriter();
 		//写入文件模块
 		File file =new File("webuser.txt");
@@ -47,6 +55,11 @@ public class LoginServlet3 extends HttpServlet{
 		bw.write("user_ip:"+userip+"\r\n\r\n");
 		bw.close();
 		
+		if(!(paramCode != null && paramCode.equals(sessionCode))) {
+			req.getSession().setAttribute("message", "验证码错误！");
+			resp.sendRedirect(req.getContextPath() + "/index.jsp");
+			return;			
+		}
 		try {
 			Class.forName("com.mysql.jdbc.Driver");//12.13
 			String url = "jdbc:mysql://47.102.203.124:3306/swu_db?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";

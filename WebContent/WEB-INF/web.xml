@@ -63,7 +63,17 @@
   	<description></description>
   	<display-name>InitServlet</display-name>
   	<servlet-name>InitServlet</servlet-name>
-  	<servlet-class>cn.edu.swu.mvcapp.servlet.Initservlet</servlet-class>
+  	<servlet-class>cn.edu.swu.mvcapp.servlet.InitServlet</servlet-class>
   	<load-on-startup>1</load-on-startup>
   </servlet>
+  
+  <servlet>
+  	<servlet-name>validateColorServlet</servlet-name>
+  	<servlet-class>cn.edu.swu.ValidateColorServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>validateColorServlet</servlet-name>
+  	<url-pattern>/validateColorServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

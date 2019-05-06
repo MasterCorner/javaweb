@@ -85,23 +85,23 @@ UserPwd.onblur = function () {
     } 
 }
 
-AuthCode.oninput = function () {
-    if (AuthCode.value == ''|| AuthCode.value !== '666666') {
-        InputNull(2);
-        AuthCodeTips.innerHTML="请检查验证码，验证码错误";
-    } else if(AuthCode.value == '666666'){
-        InputNull(2);
-        AuthCodeTips.innerHTML="验证码正确";
-    }else{
-        InputNoNull(2);
-    }
-}
-AuthCode.onblur = function () {
-    if (AuthCode.value == '') {
-        InputNull(2);
-        AuthCodeTips.innerHTML="请检查验证码，验证码错误";
-    } 
-}
+// AuthCode.oninput = function () {
+//     if (AuthCode.value == ''|| AuthCode.value !== '666666') {
+//         InputNull(2);
+//         AuthCodeTips.innerHTML="请检查验证码，验证码错误";
+//     } else if(AuthCode.value == '666666'){
+//         InputNull(2);
+//         AuthCodeTips.innerHTML="验证码正确";
+//     }else{
+//         InputNoNull(2);
+//     }
+// }
+// AuthCode.onblur = function () {
+//     if (AuthCode.value == '') {
+//         InputNull(2);
+//         AuthCodeTips.innerHTML="请检查验证码，验证码错误";
+//     } 
+// }
 
 
 
