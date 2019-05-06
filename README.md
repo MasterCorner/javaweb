@@ -44,3 +44,6 @@ a practice web project.
 ## 第六周完成内容
 - 实现insert
 - 实现update
+
+## 第七周完成内容
+— 实现验证码
